@@ -31,6 +31,7 @@
             $scope.fitbitEnabled = true;
         }
 
+		$scope.nestenabled = false;
 		if (typeof config.nest != 'undefined') {
             $scope.nestenabled = true;
         }
@@ -268,7 +269,15 @@
                 $scope.focus = "dilbert";
             });
 
-            // Start timer
+			//NEST Commands If enabled
+			if ($scope.fitbitEnabled) {
+				
+				
+				
+			}
+            
+			
+			// Start timer
             addCommand('timer_start', function(duration) {
                 console.debug("Starting timer");
                 TimerService.start(duration);
