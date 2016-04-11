@@ -31,6 +31,10 @@
             $scope.fitbitEnabled = true;
         }
 
+		if (typeof config.nest != 'undefined') {
+            $scope.nestenabled = true;
+        }
+		
         //set lang
         $scope.locale = config.language;
         tmhDynamicLocale.set(config.language.toLowerCase());
@@ -219,33 +223,7 @@
                 $scope.focus = "map";
             });
 
-            // Zoom in map
-            addCommand('map_zoom_in', function() {
-                console.debug("Zoooooooom!!!");
-                $scope.map = MapService.zoomIn();
-            });
-
-            addCommand('map_zoom_out', function() {
-                console.debug("Moooooooooz!!!");
-                $scope.map = MapService.zoomOut();
-            });
-
-            addCommand('map_zoom_point', function(value) {
-                console.debug("Moooop!!!", value);
-                $scope.map = MapService.zoomTo(value);
-            });
-
-            addCommand('map_zoom_reset', function() {
-                console.debug("Zoooommmmmzzz00000!!!");
-                $scope.map = MapService.reset();
-                $scope.focus = "map";
-            });
-
-            // Search images
-            addCommand('images_search', function(term) {
-                console.debug("Showing", term);
-            });
-
+ 
             // Set a reminder
             addCommand('reminder_insert', function(task) {
                 console.debug("I'll remind you to", task);
@@ -266,13 +244,6 @@
                 HueService.performUpdate(state + " " + action);
             });
 
-            //Show giphy image
-            addCommand('image_giphy', function(img) {
-                GiphyService.init(img).then(function(){
-                    $scope.gifimg = GiphyService.giphyImg();
-                    $scope.focus = "gif";
-                });
-            });
 
             //Show fitbit stats (registered only if fitbit is configured in the main config)
             if ($scope.fitbitEnabled) {
