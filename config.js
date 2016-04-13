@@ -26,5 +26,10 @@ var config = {
       destination : "13350 Dallas Pkwy, Dallas, TX 75240",
       name : "work",
       reload_interval : 5
-    }
+    },
+	nest: {
+		username : "mbadali25@gmail.com",
+		password : "badali25"
+		
+	}
 };
