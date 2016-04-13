@@ -26,7 +26,7 @@
         });*/
         $scope.interimResult = $translate.instant('home.commands');
         $scope.layoutName = 'main';
-		NestService.nestaction('home','');
+		NestService.nestaction('away','');
         $scope.fitbitEnabled = false;
         if (typeof config.fitbit != 'undefined') {
             $scope.fitbitEnabled = true;
