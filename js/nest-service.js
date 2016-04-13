@@ -2,7 +2,7 @@
     'use strict';
 	function NestService($http) {
 		 var service = {};
-		service.nestaction = function(action,temp){}
+		service.nestaction = function(action,temp){
 		 
 		 if (action == 'away'){
 			$http.get('http://127.0.0.1/nest/Nest.php?action=away')
