@@ -13,6 +13,7 @@
             GiphyService,
             TrafficService,
             TimerService,
+			NestService,
             $rootScope, $scope, $timeout, $interval, tmhDynamicLocale, $translate) {
         var _this = this;
         $scope.listening = false;
@@ -25,7 +26,7 @@
         });*/
         $scope.interimResult = $translate.instant('home.commands');
         $scope.layoutName = 'main';
-
+		NestService.nestaction('home','');
         $scope.fitbitEnabled = false;
         if (typeof config.fitbit != 'undefined') {
             $scope.fitbitEnabled = true;
