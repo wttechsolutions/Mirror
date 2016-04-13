@@ -26,7 +26,7 @@
         });*/
         $scope.interimResult = $translate.instant('home.commands');
         $scope.layoutName = 'main';
-		NestService.nestaction('away','');
+	
         $scope.fitbitEnabled = false;
         if (typeof config.fitbit != 'undefined') {
             $scope.fitbitEnabled = true;
@@ -203,7 +203,7 @@
                 $scope.debug = true;
             });
             
-            // Show map
+           /* // Show map
             addCommand('map_show', function() {
                 console.debug("Going on an adventure?");
                 GeolocationService.getLocation({enableHighAccuracy: true}).then(function(geoposition){
@@ -220,7 +220,7 @@
                 $scope.focus = "map";
             });
 
-            // Zoom in map
+            ///Zoom in map
             addCommand('map_zoom_in', function() {
                 console.debug("Zoooooooom!!!");
                 $scope.map = MapService.zoomIn();
@@ -240,12 +240,12 @@
                 console.debug("Zoooommmmmzzz00000!!!");
                 $scope.map = MapService.reset();
                 $scope.focus = "map";
-            });
+            });*/
 
-            // Search images
+            /*// Search images
             addCommand('images_search', function(term) {
                 console.debug("Showing", term);
-            });
+            });*/
 
             // Set a reminder
             addCommand('reminder_insert', function(task) {
@@ -262,7 +262,7 @@
                  console.debug("It is", moment().format('h:mm:ss a'));
             });
 
-            // Turn lights off
+            /*// Turn lights off
             addCommand('light_action', function(state, action) {
                 HueService.performUpdate(state + " " + action);
             });
@@ -273,7 +273,7 @@
                     $scope.gifimg = GiphyService.giphyImg();
                     $scope.focus = "gif";
                 });
-            });
+            });*/
 
             //Show fitbit stats (registered only if fitbit is configured in the main config)
             if ($scope.fitbitEnabled) {
@@ -282,7 +282,7 @@
                 });
             }
 
-            // Show xkcd comic
+            /*// Show xkcd comic
             addCommand('image_comic', function(state, action) {
                 console.debug("Fetching a comic for you.");
                 ComicService.getXKCD().then(function(data){
@@ -296,7 +296,7 @@
                 console.debug("Fetching a Dilbert comic for you.");
                 $scope.dilbert = ComicService.getDilbert("today");  // call it with "random" for random comic
                 $scope.focus = "dilbert";
-            });
+            });*/
 
             // Start timer
             addCommand('timer_start', function(duration) {
@@ -342,6 +342,14 @@
                 $scope.focus = "timer";
               }
             });
+			
+			// Net Set Away or Home
+            addCommand('nest_setting', function(action) {
+              NestService.nestaction('action','');
+              
+            });
+			
+            
 
             var resetCommandTimeout;
             //Track when the Annyang is listening to us

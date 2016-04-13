@@ -126,6 +126,12 @@
             "text": "Turn the (state) light (action)",
             "voice": "(turn) (the) :state (the) light(s) *action",
             "description": "(turn) (the) :state (the) light(s) *action"
+        },
+		"nest_setting": {
+            "text": "Nest set (action)",
+            "voice": "Nest set *action",
+            "description": "Nest set *action"
         }
+		
     }
 }
